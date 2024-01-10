@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ResetPlane : MonoBehaviour
 {
+
+    public GameObject ball;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +20,10 @@ public class ResetPlane : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Basketball") && other.gameObject.GetComponent<Rigidbody>().useGravity==true)
+        if (other.gameObject==ball && ball.GetComponent<Rigidbody>().useGravity == true)
         {
-            other.gameObject.GetComponent<BallBehavior>().ResetPos();
+            ball.GetComponent<BallBehavior>().ResetPos();
+          
         }
     }
 }
